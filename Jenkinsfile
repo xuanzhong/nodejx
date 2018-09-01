@@ -78,7 +78,7 @@ pipeline {
               sh 'jx step helm release'
 
               // promote through all 'Auto' promotion Environments
-              sh 'jx promote -b --all-auto --timeout 1h --version \$(cat ../../VERSION)'
+              sh 'export CHART_REPOSITORY="http://chartmuseum.jx.eks.xuzhong11.test.thunderhead.io" && jx promote -b --all-auto --timeout 1h --version \$(cat ../../VERSION)'
             }
           }
         }
